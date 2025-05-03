@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,7 +22,7 @@ public class EventoRequest {
     private String luogo;
     
     @NotNull
-    private String data;
+    private LocalDate data;
     
     @Min(1)
     private int postiTotali;

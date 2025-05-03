@@ -57,4 +57,9 @@ public class ExceptionHandlerClass extends ResponseEntityExceptionHandler {
         }
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
+    
+    @ExceptionHandler(IllegalStateException.class)
+    public ResponseEntity<String> handleIllegalState(IllegalStateException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+    }
 }

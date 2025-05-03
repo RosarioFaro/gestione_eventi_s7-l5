@@ -21,7 +21,7 @@ public class EventoService {
     public EventoResponse creaEvento(EventoRequest request, AppUser organizer) {
         Evento evento = new Evento();
         BeanUtils.copyProperties(request, evento);
-        evento.setData(LocalDate.parse(request.getData()));
+        evento.setData(request.getData());
         evento.setOrganizer(organizer);
         evento.setPostiDisponibili(request.getPostiTotali());
         
@@ -43,7 +43,7 @@ public class EventoService {
         }
         
         BeanUtils.copyProperties(request, evento, "id", "organizer");
-        evento.setData(LocalDate.parse(request.getData()));
+        evento.setData(request.getData());
         evento.setPostiDisponibili(request.getPostiTotali());
         
         return toResponse(eventoRepository.save(evento));
@@ -67,4 +67,3 @@ public class EventoService {
         return response;
     }
 }
-
